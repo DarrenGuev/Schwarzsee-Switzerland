@@ -24,8 +24,13 @@ body {
 }
 
 .navbar {
-    position: relative;
-    z-index: 3; /* sit above the video */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    width: 100%;
+    background: transparent;
 }
 
 .msg {
@@ -40,7 +45,7 @@ body {
 .header-hero {
     position: relative;
     z-index: 2;
-    min-height: calc(100vh - 80px); /* adjust 80px to match navbar height if needed */
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
