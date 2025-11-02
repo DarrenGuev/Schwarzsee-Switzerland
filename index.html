@@ -304,6 +304,37 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbar = document.querySelector('.navbar');
+            if (!navbar) return;
+
+            const startEl = document.getElementById('start');
+            const header = document.getElementById('header');
+
+            function setScrolled(state) {
+                if (state) navbar.classList.add('navbar-scrolled');
+                else navbar.classList.remove('navbar-scrolled');
+            }
+
+            function check() {
+                const navHeight = navbar.offsetHeight || 0;
+                if (startEl) {
+                    const rect = startEl.getBoundingClientRect();
+                    setScrolled(rect.top <= navHeight);
+                } else if (header) {
+                    setScrolled(window.scrollY > (header.offsetHeight - navHeight - 10));
+                } else {
+                    setScrolled(window.scrollY > navHeight + 10);
+                }
+            }
+
+            window.addEventListener('scroll', check, { passive: true });
+            window.addEventListener('resize', check);
+            check();
+        });
+    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
