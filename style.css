@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
 }
+html {
+    background-color: #251010;
+}
 body {
     font-family: 'Poppins', sans-serif;
 }
@@ -18,7 +21,7 @@ body {
     transform: translateX(-50%);
     height: 100vh;
     width: auto;
-    min-width: 100%;
+    min-width: 105%;
     object-fit: cover;
     z-index: 1;
 }
